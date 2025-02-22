@@ -2,17 +2,18 @@
 using TechMarket.BLL.DTO;
 using TechMarket.BLL.Infrastructure;
 using TechMarket.BLL.Interfaces;
-using TechMarket.DAL.Entities;
 using TechMarket.DAL.Interfaces;
+using TechMarket.Data.Db.Entities;
 
 namespace TechMarket.BLL.Services
 {
-    public class OrderService : IOrderService 
+    public class OrderService : IOrderService
     {
         private readonly IUnitOfWork _database;
-        private readonly IMapper _mapper; 
+        private readonly IMapper _mapper;
 
-        public OrderService(IUnitOfWork unitOfWork, IMapper mapper) {
+        public OrderService(IUnitOfWork unitOfWork, IMapper mapper)
+        {
             _database = unitOfWork;
             _mapper = mapper;
         }

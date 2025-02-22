@@ -1,4 +1,4 @@
-﻿using TechMarket.DAL.Entities;
+﻿using TechMarket.Data.Db.Entities;
 
 namespace TechMarket.BLL.DTO
 {

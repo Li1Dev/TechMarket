@@ -1,11 +1,11 @@
-using TechMarket.BLL.Services;
+using Microsoft.EntityFrameworkCore;
+using TechMarket.BLL.Infrastructure;
 using TechMarket.BLL.Interfaces;
+using TechMarket.BLL.Services;
+using TechMarket.DAL.EF;
 using TechMarket.DAL.Interfaces;
 using TechMarket.DAL.Repositories;
-using TechMarket.BLL.Infrastructure;
-using Microsoft.EntityFrameworkCore;
-using TechMarket.DAL.EF;
-using TechMarket.DAL.Entities;
+using TechMarket.Data.Db.Entities;
 
 namespace TechMarket
 {
@@ -14,18 +14,14 @@ namespace TechMarket
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-                                        
+
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddDbContext<ApplicationContext>(options =>
                 options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-            //builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
-            //        options.SignIn.RequireConfirmedAccount = true)
-            //    .AddEntityFrameworkStores<ApplicationContext>();
-
-            builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
+            builder.Services.AddIdentity<UserEntity, RoleEntity>()
                 .AddEntityFrameworkStores<ApplicationContext>();
 
             builder.Services.AddScoped<IUnitOfWork, EFUnitOfWork>();

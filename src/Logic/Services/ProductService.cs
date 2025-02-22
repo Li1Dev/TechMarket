@@ -2,8 +2,8 @@
 using TechMarket.BLL.DTO;
 using TechMarket.BLL.Infrastructure;
 using TechMarket.BLL.Interfaces;
-using TechMarket.DAL.Entities;
 using TechMarket.DAL.Interfaces;
+using TechMarket.Data.Db.Entities;
 
 namespace TechMarket.BLL.Services
 {
@@ -25,13 +25,14 @@ namespace TechMarket.BLL.Services
                 throw new ValidationException("Продукт равен null", "");
             }
             IEnumerable<Product>? products = await _database.Products.FindAsync(p => p.Name == productDTO.Name && _mapper.Map<CategoryDTO>(p.Category) == productDTO.Category && _mapper.Map<CompanyDTO>(p.Company) == productDTO.Company);
-            if ( products == null) {
+            if (products == null)
+            {
                 throw new ValidationException("Такой тавар уже существует", "");
             }
             Product product = _mapper.Map<Product>(productDTO);
             await _database.Products.CreateAsync(product);
             await _database.SaveAsync();
-            
+
         }
 
         public async Task<IEnumerable<ProductDTO>?> GetProducts()
@@ -41,20 +42,20 @@ namespace TechMarket.BLL.Services
 
         public async Task<ProductDTO?> GetProduct(int? id)
         {
-            if(id == null)
+            if (id == null)
             {
                 throw new ValidationException("Не установлено ID продукта", "");
             }
             Product? product = await _database.Products.GetByIdAsync(id.Value);
-            if(product == null)
+            if (product == null)
             {
-                throw new ValidationException("Продукт не найден","");
+                throw new ValidationException("Продукт не найден", "");
             }
 
             ProductDTO? productDTO = _mapper.Map<ProductDTO>(product);
             return productDTO;
         }
-  
+
         public void Dispose()
         {
             _database.Dispose();

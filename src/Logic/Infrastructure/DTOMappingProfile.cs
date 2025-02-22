@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
 using TechMarket.BLL.DTO;
-using TechMarket.DAL.Entities;
+using TechMarket.Data.Db.Entities;
 
 namespace TechMarket.BLL.Infrastructure
 {
     public class DTOMappingProfile : Profile
     {
-        public DTOMappingProfile() 
+        public DTOMappingProfile()
         {
             // Profile for Product
             CreateMap<Product, ProductDTO>().ReverseMap();
