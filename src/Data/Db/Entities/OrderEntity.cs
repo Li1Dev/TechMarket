@@ -1,4 +1,6 @@
-﻿namespace TechMarket.Data.Db.Entities;
+﻿using TechMarket.Core.Orders;
+
+namespace TechMarket.Data.Db.Entities;
 
 public class OrderEntity
 {
