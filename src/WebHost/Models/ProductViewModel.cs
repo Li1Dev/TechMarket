@@ -13,7 +13,5 @@
         public decimal Price { get; set; }
 
         public string? Discription { get; set; }
-
-        public List<CharacteristicProductViewModel> CharacteristicsProduct { get; set; } = new();
     }
 }

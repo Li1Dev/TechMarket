@@ -14,7 +14,7 @@ public class OrderEntity
 
     public DateTimeOffset? DateTimeClose { get; set; }
 
-    public required UserEntity Customer { get; set; }
+    public UserEntity? Customer { get; set; }
 
     public List<ProductEntity>? Products { get; set; }
 }

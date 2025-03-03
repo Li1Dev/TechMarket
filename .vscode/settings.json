@@ -1,0 +1,25 @@
+{
+  "editor.tabSize": 4,
+  "editor.insertSpaces": true,
+  "editor.rulers": [
+    100
+  ],
+  "plantuml.diagramsRoot": "docs/diagrams/src",
+  "plantuml.exportOutDir": "docs/diagrams/out",
+  "omnisharp.enableRoslynAnalyzers": true,
+  "omnisharp.enableDecompilationSupport": true,
+  "omnisharp.useGlobalMono": "never",
+  "editor.formatOnType": true,
+  "editor.semanticHighlighting.enabled": true,
+  "csharp.semanticHighlighting.enabled": true,
+  "dotnet.enableTelemetry": false,
+  "dotnet.server.useOmnisharp": true,
+  "csharp.debug.symbolOptions.searchNuGetOrgSymbolServer": true,
+  "explorer.fileNesting.patterns": {
+    "*.cs": "${capture}.tt, ${capture}.Generated.cs",
+    "*.tt": "${capture}.Generated.cs"
+  },
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.enabled": true,
+  "dotnet.formatting.organizeImportsOnFormat": true,
+}

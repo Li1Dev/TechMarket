@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "WebHost",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-host",
+      "program": "${workspaceFolder}/src/WebHost/bin/Debug/net8.0/WebHost.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/src/WebHost",
+      "stopAtEntry": false,
+      "console": "internalConsole",
+      "env": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    },
+    {
+      "name": ".NET Core Attach",
+      "type": "coreclr",
+      "request": "attach"
+    }
+  ]
+}
